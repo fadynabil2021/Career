@@ -56,8 +56,6 @@ sudo renice -n 10 -p <pid>
 Description: Fork → Exec → Running → Waiting → Termination.
 
 ## Summary
-
+![Alt text](process-lifecycle.png)
 Processes are the active units of computation. Understanding how to monitor and control them is essential for system reliability.
 
-
-# Document End
