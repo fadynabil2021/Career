@@ -1,0 +1,14 @@
+[Unit]
+Description=Project backup service
+Wants=network-online.target
+After=network-online.target
+
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup.sh
+User=root
+
+
+[Install]
+WantedBy=multi-user.target
