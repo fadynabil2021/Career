@@ -57,7 +57,7 @@ lsblk -f
 Description: Sequential stages from firmware to user session.
 
 ## Summary
-
+![Alt text](linux-boot-process.png)
 Booting is a deterministic sequence; understanding each stage (firmware → bootloader → kernel → init) is essential for system recovery and reliable operation.
 
 
