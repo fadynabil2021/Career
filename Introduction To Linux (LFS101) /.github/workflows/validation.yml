@@ -1,0 +1,34 @@
+name: Validation
+on:
+workflow_dispatch:
+push:
+branches: [ main ]
+
+
+jobs:
+basic-tests:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: Install ShellCheck
+run: sudo apt-get update && sudo apt-get install -y shellcheck
+- name: Run ShellCheck
+run: |
+if compgen -G "project/scripts/*.sh" > /dev/null; then
+shellcheck project/scripts/*.sh || exit 1
+else
+echo "No scripts to lint"
+fi
+- name: Setup Node
+uses: actions/setup-node@v4
+with:
+node-version: '18'
+- name: Install markdownlint
+run: npm install -g markdownlint-cli
+- name: Run markdownlint
+run: markdownlint '**/*.md' --config .markdownlint.json || true
+- name: Syntax-check scripts
+run: |
+for f in project/scripts/*.sh; do
+bash -n "$f" || true
+done
