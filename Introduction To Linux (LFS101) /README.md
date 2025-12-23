@@ -9,21 +9,18 @@ This repository contains an independently authored course-aligned summary and a 
 ## Quickstart (developer/testing)
 1. Clone the repo
 ```bash
-git clone <repo-url>
-cd lfs101-linux-foundations
+git clone https://github.com/fadynabil2021/Career.git
+cd 'Introduction To Linux (LFS101) '
 ````
 
 2. Inspect scripts and run local linters
 
 ```bash
 # install shellcheck and markdownlint-cli
-# Debian/Ubuntu example
 sudo apt update && sudo apt install -y shellcheck
-npm install -g markdownlint-cli
 
 # run checks
 shellcheck project/scripts/*.sh
-markdownlint '**/*.md'
 ```
 
 3. Review `project/implementation.md` for step-by-step setup
@@ -34,7 +31,6 @@ Refer to `repo-tree.txt` or top-level folders. Key directories:
 
 * `course-summary/`
 * `project/` (scripts, systemd units, docs)
-* `assets/` (diagrams)
 
 ## License
 
