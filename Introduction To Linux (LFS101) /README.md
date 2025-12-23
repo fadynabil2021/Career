@@ -5,7 +5,6 @@ This repository contains an independently authored course-aligned summary and a 
 ## What is included
 - `course-summary/` — Chapter-by-chapter Markdown summaries aligned with LFS101
 - `project/` — Production-grade simulation: implementation, scripts, and validation
-- `assets/` — Diagrams and assets used in documentation
 
 ## Quickstart (developer/testing)
 1. Clone the repo
