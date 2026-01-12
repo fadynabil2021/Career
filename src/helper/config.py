@@ -14,10 +14,5 @@ class Settings(BaseSettings):
     OPEN_AI_API_KEY : str 
 
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        env_prefix = "MINI_RAG_"
-        case_sensitive = True
 def get_settings():
     return Settings()
