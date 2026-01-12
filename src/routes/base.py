@@ -1,6 +1,5 @@
 from fastapi import APIRouter , FastAPI
-import os
-
+from helper.config import get_settings
 
 router = APIRouter(
     prefix="/api/v1",
@@ -9,7 +8,8 @@ router = APIRouter(
 
 @router.get("/")
 async def read_root():
-    app_name = os.getenv("APP_NAME")
-    app_version = os.getenv("APP_VERSION")
+    app_settings = get_settings() 
+    app_name = app_settings.APP_NAME
+    app_version = app_settings.APP_VERSION
     return {"app_name": app_name,
             "app_version": app_version}
