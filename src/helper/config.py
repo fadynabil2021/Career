@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     FILE_ALLOWED_SIZE : int 
     PROJECTS_DIR : str 
     FILE_CHUNCK_SIZE : int 
+    CHUNK_SIZE : int 
+    OVERLAP_SIZE : int 
     class Config:
         env_file=".env"
 
