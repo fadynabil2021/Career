@@ -5,6 +5,9 @@ from models import ResponceEnums
 import os
 import re
 import uuid
+import logging
+
+logger = logging.getLogger(__name__)
 
 class DataController(BaseController):
     def __init__(self):
@@ -19,7 +22,8 @@ class DataController(BaseController):
         ,           "indicator": False}
         return {"message"  : ResponceEnums.file_uploaded_successfully.value
         ,       "indicator": True}
-    def gen_unique_filename(self , original_filename: str , project_id: str):
+
+    def gen_unique_filepath(self , original_filename: str , project_id: str):
         random_string = self.gen_random_string(length = 10)
         project_path = ProjectController().get_project_path(project_id = project_id)
         clean_filename = self.clean_filename(original_filename = original_filename)
@@ -27,7 +31,7 @@ class DataController(BaseController):
         while os.path.exists(new_file_path):
             random_string = self.gen_random_string(length = 10)
             new_file_path = os.path.join(project_path , random_string + "_" + clean_filename)
-        return new_file_path
+        return new_file_path , random_string + "_" + clean_filename
 
 
     def clean_filename(self , original_filename: str):

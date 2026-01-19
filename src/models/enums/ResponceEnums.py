@@ -8,3 +8,4 @@ class ResponceEnums(Enum):
     file_upload_failed = "File upload failed"
     file_validation_failed = "File validation failed"
     file_validation_success = "File validation success"
+    
