@@ -1,7 +1,7 @@
 from fastapi import APIRouter , FastAPI , Depends , UploadFile , status
 from fastapi.responses import JSONResponse
 from helper import get_settings , Settings 
-from controllers import DataController , ProjectController
+from controllers import DataController , ProjectController , ProcessController
 import os
 import shutil
 import aiofiles
@@ -41,6 +41,15 @@ async def upload_file(project_id: str , file: UploadFile , app_settings: Setting
 
 @router.post("/process/{project_id}")
 async def process_file(project_id: str , process_request: ProcessRequest , app_settings: Settings = Depends(get_settings)):
+    
     filename = process_request.filename 
-    return filename 
-                        
+
+    process_controller = ProcessController(project_id = project_id , filename = filename)
+    chuncks            = process_controller.process_file_content(filename = filename)   
+
+    if chuncks is None or len(chuncks) == 0:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST 
+                            ,content=ResponceEnums.file_processing_failed.value) 
+
+    return chuncks                    
+                 

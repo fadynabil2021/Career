@@ -7,7 +7,7 @@ pydantic==2.7.2
 aiofiles==23.2.1
 langchain==0.2.17
 PyMuPDF==1.24.11
-
+langchain-community==0.2.19
 
 
 
