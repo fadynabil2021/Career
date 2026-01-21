@@ -1,4 +1,4 @@
-# Mini-RAG app
+# Mini-RAG app (still in Progress)
 This is a project-based-learning 
 
 ## requirments
