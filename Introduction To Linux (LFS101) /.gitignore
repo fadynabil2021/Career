@@ -1,0 +1,55 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+
+# Logs and backups
+*.log
+logs/
+/backups/
+/backups/*
+*.bak
+*.swp
+*.tmp
+*.old
+
+
+# SSH keys and secrets
+*.pem
+*.key
+*.crt
+.secrets/
+
+
+# Node
+node_modules/
+
+
+# Systemd state (do not commit runtime files)
+/var/log/
+/run/
+/tmp/
+
+
+# Images from editors
+*.png
+*.jpg
+*.svg
+
+
+# GitHub
+.github/workflows/*.yml
